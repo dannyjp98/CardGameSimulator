@@ -30,8 +30,13 @@ constexpr const char* const Card::SUIT_DIAMONDS;
 Card::Card() {
   assert(false);
 }
+
 std::string Card::get_rank() const {
   assert(false);
+}
+
+std::string Card::get_suit() const {
+    assert(false);
 }
 
 // NOTE: We HIGHLY recommend you check out the operator overloading
