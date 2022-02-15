@@ -85,9 +85,6 @@ string Card::get_suit(const std::string &trump) const {
     if(get_suit(trump) == trump) {
       return true;
     }
-    else if(is_left_bower(trump) == true) {
-      return true;
-    }
     return false;
   }
 
