@@ -53,7 +53,7 @@ class Player {
   // Needed to avoid some compiler errors
   virtual ~Player() {}
 };
-
+ 
 //EFFECTS: Returns a pointer to a player with the given name and strategy
 //To create an object that won't go out of scope when the function returns,
 //use "return new Simple(name)" or "return new Human(name)"

@@ -35,13 +35,15 @@ void Pack::reset() {
 }
 
 void Pack::shuffle() {
-    std::array<Card, PACK_SIZE> new_stack = cards;
-    for(int i = 0; i < PACK_SIZE; i+=2){
-        Card temp;
-        new_stack[i] = cards[PACK_SIZE-i];
-        new_stack[i+1] = cards[i];
+    for(int x = 0; x < 7; x++){
+        std::array<Card, PACK_SIZE> new_stack = cards;
+        for(int i = 0; i < PACK_SIZE; i+=2){
+            Card temp;
+            new_stack[i] = cards[PACK_SIZE-i];
+            new_stack[i+1] = cards[i];
+        }
+        cards = new_stack;
     }
-    cards = new_stack;
     reset();
 }
 
