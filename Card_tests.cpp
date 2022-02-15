@@ -25,7 +25,7 @@ TEST(test_get_suit_trump) {
     ASSERT_EQUAL(c.get_suit("SUIT_SPADES"),c.get_suit());
 
     Card d(Card::RANK_JACK, Card::SUIT_CLUBS);
-    ASSERT_EQUAL(d.get_suit("SUIT_SPADES"), "SUIT_SPADES");
+    ASSERT_EQUAL(d.get_suit("SUIT_SPADES"), d.get_suit());
 
 }
 
@@ -73,6 +73,14 @@ TEST(test_get_rank_weight) {
 
 TEST(test_get_suit_weight) {
     ASSERT_EQUAL(true,true);
+}
+
+TEST(test_operator_greater) {
+    Card a(Card::RANK_THREE, Card::SUIT_CLUBS);
+    Card b(Card::RANK_JACK, Card::SUIT_DIAMONDS);
+    ASSERT_EQUAL(operator<(a,b), true);
+    ASSERT_EQUAL(operator<(b,a), false);
+    ASSERT_EQUAL(operator<(a,a), false);
 }
 
 
