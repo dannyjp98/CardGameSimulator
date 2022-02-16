@@ -122,31 +122,45 @@ bool operator<(const Card &lhs, const Card &rhs) {
 //EFFECTS Returns true if lhs is lower value than rhs or the same card as rhs.
 //  Does not consider trump.
 bool operator<=(const Card &lhs, const Card &rhs) {
-  return false;
+  if(lhs==rhs) return true;
+  return lhs<rhs;
 }
 
 //EFFECTS Returns true if lhs is higher value than rhs.
 //  Does not consider trump.
 bool operator>(const Card &lhs, const Card &rhs) {
+  if(get_rank_weight(lhs)>get_rank_weight(rhs)){
+    return true;
+  }
+  if(get_rank_weight(lhs)==get_rank_weight(rhs)){
+    if(get_suit_weight(lhs)>get_suit_weight(rhs)){
+      return true;
+    }
+  }
   return false;
 }
 
 //EFFECTS Returns true if lhs is higher value than rhs or the same card as rhs.
 //  Does not consider trump.
 bool operator>=(const Card &lhs, const Card &rhs){
-  return false;
+  if(lhs==rhs) return true;
+  return lhs>rhs;
 }
 
 //EFFECTS Returns true if lhs is same card as rhs.
 //  Does not consider trump.
 bool operator==(const Card &lhs, const Card &rhs){
+  if(get_rank_weight(lhs)==get_rank_weight(rhs) &&
+  get_suit_weight(lhs)==get_suit_weight(rhs)){
+    return true;
+  }
   return false;
 }
 
 //EFFECTS Returns true if lhs is not the same card as rhs.
 //  Does not consider trump.
 bool operator!=(const Card &lhs, const Card &rhs){
-  return false;
+  return !(lhs==rhs);
 }
 
 //REQUIRES suit is a valid suit
