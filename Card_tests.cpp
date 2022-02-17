@@ -50,10 +50,10 @@ TEST(test_is_right_bower) {
 
 TEST(test_is_left_bower) {
     Card c(Card::RANK_JACK, Card::SUIT_CLUBS);
-    ASSERT_EQUAL(c.is_left_bower("SUIT_SPADES"), true);
+    ASSERT_TRUE(c.is_left_bower("SUIT_SPADES"));
 
     Card d(Card::RANK_JACK, Card::SUIT_SPADES);
-    ASSERT_EQUAL(d.is_left_bower("SUIT_SPADES"), false);
+    ASSERT_FALSE(d.is_left_bower(Card::SUIT_SPADES));
 }
 
 TEST(test_is_trump) {
