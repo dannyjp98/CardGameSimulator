@@ -18,6 +18,16 @@ TEST(test_player_get_name) {
     delete alice;
 }
 
+TEST(test_player_add_card) {
+
+    ASSERT_TRUE(true);
+}
+
+TEST(test_make_trump) {
+
+}
+
+
 // Add more tests here
 TEST(test_player_creation) {
   // Create a Human player
