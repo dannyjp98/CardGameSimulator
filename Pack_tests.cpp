@@ -16,4 +16,11 @@ TEST(test_pack_default_ctor) {
 
 // Add more tests here
 
+TEST(test_pack_shuffle) {
+  Pack pack;
+  pack.shuffle();
+  Card first_card = pack.deal_one();
+  ASSERT_EQUAL(first_card, Card(Card::RANK_KING, Card::SUIT_CLUBS));
+}
+
 TEST_MAIN()

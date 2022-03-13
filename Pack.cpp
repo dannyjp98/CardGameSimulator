@@ -1,3 +1,5 @@
+// Project UID 1d9f47bfc76643019cfbf037641defe1
+
 #include "Pack.h"
 #include <string>
 #include <vector>
@@ -57,6 +59,11 @@ void Pack::shuffle() {
         cards = new_stack;
     }
     reset();
+    // std::cout<<"PRINTING PACK\n";
+    // for(int i = 0; i<24; ++i){
+    //     std::cout<<new_stack[i]<<"\n";
+    // }
+    // std::cout<<"\n";
 }
 
 bool Pack::empty() const{
