@@ -14,26 +14,26 @@
 class Game{
     private:
         Pack card_pack;
-        bool shuffle;
-        int pts_to_win;
+        bool shuffle = false;
+        int pts_to_win = 1;
         std::vector<Player*> players;
         int player_num = 4;
 
-        int hand_number;
+        int hand_number = 0;
 
-        int team_1_score;
-        int team_2_score;
+        int team_1_score = 0;
+        int team_2_score = 0;
         int team_1_tricks = 0;
         int team_2_tricks = 0;
-        int team_made_trump;
+        int team_made_trump = 0;
 
 
         Card upcard;
         std::string trump;
 
         Player* dealer;
-        int dealer_index;
-        int lead_index;
+        int dealer_index = 0;
+        int lead_index = 0;
         bool winner_exists = false;
     public:
         Game(){}
@@ -264,12 +264,10 @@ int main(int argc, char* argv[]) {
     std::string input_file = argv[1];
     std::ifstream fin;
     fin.open(input_file);
-
     if (!fin.is_open()){
         std::cout << "Error opening " << input_file << "\n";
         return 1;
     }
-
     int pts_to_win = std::atoi(argv[3]);
     bool shuffle;
 
@@ -287,16 +285,10 @@ int main(int argc, char* argv[]) {
     in_players.push_back(Player_factory(argv[8],argv[9]));
     in_players.push_back(Player_factory(argv[10],argv[11]));
 
-    // for(int i = 4; i<10; i+=2){
-    //     //std::cout<<argv[i]<<argv[i+1]<<"\n";
-    //     in_players.push_back(Player_factory(argv[i],argv[i+1]));
-    // }
-    Game* main_game = new Game(p, shuffle, pts_to_win, in_players);
-    
-    //if(shuffle=="shuffle") main_game->shuffle_pack();
+    Game main_game = Game(p, shuffle, pts_to_win, in_players);
 
-    main_game->begin_play();
-    for(int i = 0; i<in_players.size(); ++i){
+    main_game.begin_play();
+    for(int i = 0; i<int(in_players.size()); ++i){
         delete in_players[i];
     }
 }
